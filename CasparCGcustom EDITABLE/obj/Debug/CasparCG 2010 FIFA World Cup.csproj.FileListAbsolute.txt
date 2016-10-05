@@ -25,3 +25,12 @@ C:\Users\User\Desktop\CasparCG 2010 FIFA World Cup Client\obj\Debug\CasparCG 201
 D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\bin\Debug\FotbollsVMKlocka.exe.config
 D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\FotbollsVMKlocka.exe
 D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\FotbollsVMKlocka.pdb
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\bin\Debug\facebook.txt
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\bin\Debug\FotbollsVMKlocka.exe
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\bin\Debug\FotbollsVMKlocka.pdb
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\CasparCG 2010 FIFA World Cup.csprojResolveAssemblyReference.cache
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\FotbollsVMKlocka.Controls.FaceBookItem.resources
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\FotbollsVMKlocka.Controls.SaveDialog.resources
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\FotbollsVMKlocka.Form1.resources
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\FotbollsVMKlocka.Properties.Resources.resources
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\CasparCG 2010 FIFA World Cup.csproj.GenerateResource.Cache

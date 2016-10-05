@@ -1,1 +1,11 @@
 D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe.config
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.exe
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\WindowsFormsApplication1.pdb
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csprojResolveAssemblyReference.cache
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Form1.resources
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.Properties.Resources.resources
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.csproj.GenerateResource.Cache
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.exe
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Svt.Caspar.pdb
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Svt.Network.pdb
