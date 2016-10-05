@@ -22,3 +22,6 @@ C:\Users\User\Desktop\CasparCG 2010 FIFA World Cup Client\obj\Debug\FotbollsVMKl
 C:\Users\User\Desktop\CasparCG 2010 FIFA World Cup Client\obj\Debug\FotbollsVMKlocka.Form1.resources
 C:\Users\User\Desktop\CasparCG 2010 FIFA World Cup Client\obj\Debug\FotbollsVMKlocka.Properties.Resources.resources
 C:\Users\User\Desktop\CasparCG 2010 FIFA World Cup Client\obj\Debug\CasparCG 2010 FIFA World Cup.csproj.GenerateResource.Cache
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\bin\Debug\FotbollsVMKlocka.exe.config
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\FotbollsVMKlocka.exe
+D:\[Work]\CasparCCC_Invate\CasparCGcustom EDITABLE\obj\Debug\FotbollsVMKlocka.pdb
