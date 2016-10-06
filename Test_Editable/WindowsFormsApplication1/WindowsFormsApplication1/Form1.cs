@@ -21,7 +21,8 @@ namespace WindowsFormsApplication1
 
         CasparDevice caspar_ = new CasparDevice();
         CasparCGDataCollection cgData = new CasparCGDataCollection();
-
+        private String titlelwthst = "";
+        private String desclwthst = "";
 
 
         public Form1()
@@ -142,12 +143,69 @@ namespace WindowsFormsApplication1
         {
             tabControl1.Enabled = true;
         }
-        #endregion   
+        #endregion
+        #region Countdown
+        #endregion
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
-  
+        private void ShowClock_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Clear old data
+                cgData.Clear();
+
+                // build data
+                cgData.SetData("title", titlelwthst);
+                cgData.SetData("desc", desclwthst);
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (caspar_.IsConnected && caspar_.Channels.Count > 0)
+                {
+                    caspar_.Channels[0].CG.Add(2, "Two-Tier-LowerThirds", true, cgData);
+                    System.Diagnostics.Debug.WriteLine("Add");
+                    System.Diagnostics.Debug.WriteLine(2);
+                    System.Diagnostics.Debug.WriteLine("Two - Tier - LowerThirds");
+                    System.Diagnostics.Debug.WriteLine(cgData.ToXml());
+                }
+            }
+        }
+
+        private void HideClock_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (caspar_.IsConnected && caspar_.Channels.Count > 0)
+                {
+                    caspar_.Channels[0].CG.Stop(2);
+                    System.Diagnostics.Debug.WriteLine("Stop");
+                    System.Diagnostics.Debug.WriteLine(2);
+                }
+            }
+        }
+
+
+        private void SetClock_Click(object sender, EventArgs e)
+        {
+            titlelwthst = TitleLWTH.Text;
+            desclwthst = DescLWTH.Text;
+
+        }
     }
 }

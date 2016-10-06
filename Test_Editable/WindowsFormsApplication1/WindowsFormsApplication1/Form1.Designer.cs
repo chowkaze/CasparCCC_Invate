@@ -46,6 +46,13 @@
             this.Connect_Button = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.IPhostserver = new System.Windows.Forms.TextBox();
+            this.HideClock = new System.Windows.Forms.Button();
+            this.ShowClock = new System.Windows.Forms.Button();
+            this.SetClock = new System.Windows.Forms.Button();
+            this.DescLWTH = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TitleLWTH = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -72,6 +79,13 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.TitleLWTH);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.label2);
+            this.tabPage1.Controls.Add(this.DescLWTH);
+            this.tabPage1.Controls.Add(this.SetClock);
+            this.tabPage1.Controls.Add(this.ShowClock);
+            this.tabPage1.Controls.Add(this.HideClock);
             this.tabPage1.Controls.Add(this.statusStrip1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
@@ -202,6 +216,68 @@
             this.IPhostserver.Size = new System.Drawing.Size(100, 20);
             this.IPhostserver.TabIndex = 2;
             // 
+            // HideClock
+            // 
+            this.HideClock.Location = new System.Drawing.Point(6, 172);
+            this.HideClock.Name = "HideClock";
+            this.HideClock.Size = new System.Drawing.Size(75, 23);
+            this.HideClock.TabIndex = 3;
+            this.HideClock.Text = "Hide";
+            this.HideClock.UseVisualStyleBackColor = true;
+            this.HideClock.Click += new System.EventHandler(this.HideClock_Click);
+            // 
+            // ShowClock
+            // 
+            this.ShowClock.Location = new System.Drawing.Point(112, 172);
+            this.ShowClock.Name = "ShowClock";
+            this.ShowClock.Size = new System.Drawing.Size(75, 23);
+            this.ShowClock.TabIndex = 4;
+            this.ShowClock.Text = "Show";
+            this.ShowClock.UseVisualStyleBackColor = true;
+            this.ShowClock.Click += new System.EventHandler(this.ShowClock_Click);
+            // 
+            // SetClock
+            // 
+            this.SetClock.Location = new System.Drawing.Point(226, 101);
+            this.SetClock.Name = "SetClock";
+            this.SetClock.Size = new System.Drawing.Size(75, 23);
+            this.SetClock.TabIndex = 5;
+            this.SetClock.Text = "Set";
+            this.SetClock.UseVisualStyleBackColor = true;
+            this.SetClock.Click += new System.EventHandler(this.SetClock_Click);
+            // 
+            // DescLWTH
+            // 
+            this.DescLWTH.Location = new System.Drawing.Point(87, 128);
+            this.DescLWTH.Name = "DescLWTH";
+            this.DescLWTH.Size = new System.Drawing.Size(100, 20);
+            this.DescLWTH.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "label1";
+            // 
+            // TitleLWTH
+            // 
+            this.TitleLWTH.Location = new System.Drawing.Point(87, 83);
+            this.TitleLWTH.Name = "TitleLWTH";
+            this.TitleLWTH.Size = new System.Drawing.Size(100, 20);
+            this.TitleLWTH.TabIndex = 10;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,6 +317,13 @@
         private System.Windows.Forms.TextBox IPhostserver;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.Button ShowClock;
+        private System.Windows.Forms.Button HideClock;
+        private System.Windows.Forms.Button SetClock;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox DescLWTH;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TitleLWTH;
     }
 }
 
