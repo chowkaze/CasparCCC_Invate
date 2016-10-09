@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Interop.BMDSwitcherAPI">
+      <HintPath>C:\Users\User\Desktop\Interop.BMDSwitcherAPI\obj\Debug\Interop.BMDSwitcherAPI.dll</HintPath>
+    </Reference>
     <Reference Include="Svt.Caspar, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Svt.Caspar.dll</HintPath>
@@ -63,6 +66,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SwitcherAPIHelper.cs" />
+    <Compile Include="SwitcherMonitors.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
