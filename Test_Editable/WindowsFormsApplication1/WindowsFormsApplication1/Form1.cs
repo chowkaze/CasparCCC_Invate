@@ -200,6 +200,42 @@ namespace WindowsFormsApplication1
 
         }
         #region Functional_Program
+
+        private void read_write_preset()
+        {
+
+        }
+
+        private void ShowRunCG(String[] Types,String[] InputSource,int layer,int channel,String TempName)
+        {
+            try
+            {
+                // Clear old data
+                cgData.Clear();
+
+                // build data
+                for(int i=0;i<Types.Length;i++)
+                {
+                    cgData.SetData(Types[i], InputSource[i]);
+                }
+                
+            }
+            catch
+            {
+
+            }
+            finally
+            {
+                if (caspar_.IsConnected && caspar_.Channels.Count > 0)
+                {
+                    caspar_.Channels[channel].CG.Add(layer, TempName, true, cgData);
+                    System.Diagnostics.Debug.WriteLine("Add");
+                    System.Diagnostics.Debug.WriteLine(layer);
+                    System.Diagnostics.Debug.WriteLine(TempName);
+                    System.Diagnostics.Debug.WriteLine(cgData.ToXml());
+                }
+            }
+        }
         private void ShowClock_Click(object sender, EventArgs e)
         {
             try

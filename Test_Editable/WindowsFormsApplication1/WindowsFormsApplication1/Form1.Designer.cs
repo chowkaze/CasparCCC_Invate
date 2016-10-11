@@ -31,6 +31,13 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TitleLWTH = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DescLWTH = new System.Windows.Forms.TextBox();
+            this.SetClock = new System.Windows.Forms.Button();
+            this.ShowClock = new System.Windows.Forms.Button();
+            this.HideClock = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -46,13 +53,7 @@
             this.Connect_Button = new System.Windows.Forms.Button();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.IPhostserver = new System.Windows.Forms.TextBox();
-            this.HideClock = new System.Windows.Forms.Button();
-            this.ShowClock = new System.Windows.Forms.Button();
-            this.SetClock = new System.Windows.Forms.Button();
-            this.DescLWTH = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.TitleLWTH = new System.Windows.Forms.TextBox();
+            this.optionbutton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -94,6 +95,68 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // TitleLWTH
+            // 
+            this.TitleLWTH.Location = new System.Drawing.Point(87, 83);
+            this.TitleLWTH.Name = "TitleLWTH";
+            this.TitleLWTH.Size = new System.Drawing.Size(100, 20);
+            this.TitleLWTH.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 131);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "label2";
+            // 
+            // DescLWTH
+            // 
+            this.DescLWTH.Location = new System.Drawing.Point(87, 128);
+            this.DescLWTH.Name = "DescLWTH";
+            this.DescLWTH.Size = new System.Drawing.Size(100, 20);
+            this.DescLWTH.TabIndex = 6;
+            // 
+            // SetClock
+            // 
+            this.SetClock.Location = new System.Drawing.Point(226, 101);
+            this.SetClock.Name = "SetClock";
+            this.SetClock.Size = new System.Drawing.Size(75, 23);
+            this.SetClock.TabIndex = 5;
+            this.SetClock.Text = "Set";
+            this.SetClock.UseVisualStyleBackColor = true;
+            this.SetClock.Click += new System.EventHandler(this.SetClock_Click);
+            // 
+            // ShowClock
+            // 
+            this.ShowClock.Location = new System.Drawing.Point(112, 172);
+            this.ShowClock.Name = "ShowClock";
+            this.ShowClock.Size = new System.Drawing.Size(75, 23);
+            this.ShowClock.TabIndex = 4;
+            this.ShowClock.Text = "Show";
+            this.ShowClock.UseVisualStyleBackColor = true;
+            this.ShowClock.Click += new System.EventHandler(this.ShowClock_Click);
+            // 
+            // HideClock
+            // 
+            this.HideClock.Location = new System.Drawing.Point(6, 172);
+            this.HideClock.Name = "HideClock";
+            this.HideClock.Size = new System.Drawing.Size(75, 23);
+            this.HideClock.TabIndex = 3;
+            this.HideClock.Text = "Hide";
+            this.HideClock.UseVisualStyleBackColor = true;
+            this.HideClock.Click += new System.EventHandler(this.HideClock_Click);
             // 
             // statusStrip1
             // 
@@ -216,73 +279,21 @@
             this.IPhostserver.Size = new System.Drawing.Size(100, 20);
             this.IPhostserver.TabIndex = 2;
             // 
-            // HideClock
+            // optionbutton
             // 
-            this.HideClock.Location = new System.Drawing.Point(6, 172);
-            this.HideClock.Name = "HideClock";
-            this.HideClock.Size = new System.Drawing.Size(75, 23);
-            this.HideClock.TabIndex = 3;
-            this.HideClock.Text = "Hide";
-            this.HideClock.UseVisualStyleBackColor = true;
-            this.HideClock.Click += new System.EventHandler(this.HideClock_Click);
-            // 
-            // ShowClock
-            // 
-            this.ShowClock.Location = new System.Drawing.Point(112, 172);
-            this.ShowClock.Name = "ShowClock";
-            this.ShowClock.Size = new System.Drawing.Size(75, 23);
-            this.ShowClock.TabIndex = 4;
-            this.ShowClock.Text = "Show";
-            this.ShowClock.UseVisualStyleBackColor = true;
-            this.ShowClock.Click += new System.EventHandler(this.ShowClock_Click);
-            // 
-            // SetClock
-            // 
-            this.SetClock.Location = new System.Drawing.Point(226, 101);
-            this.SetClock.Name = "SetClock";
-            this.SetClock.Size = new System.Drawing.Size(75, 23);
-            this.SetClock.TabIndex = 5;
-            this.SetClock.Text = "Set";
-            this.SetClock.UseVisualStyleBackColor = true;
-            this.SetClock.Click += new System.EventHandler(this.SetClock_Click);
-            // 
-            // DescLWTH
-            // 
-            this.DescLWTH.Location = new System.Drawing.Point(87, 128);
-            this.DescLWTH.Name = "DescLWTH";
-            this.DescLWTH.Size = new System.Drawing.Size(100, 20);
-            this.DescLWTH.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 131);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "label2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "label1";
-            // 
-            // TitleLWTH
-            // 
-            this.TitleLWTH.Location = new System.Drawing.Point(87, 83);
-            this.TitleLWTH.Name = "TitleLWTH";
-            this.TitleLWTH.Size = new System.Drawing.Size(100, 20);
-            this.TitleLWTH.TabIndex = 10;
+            this.optionbutton.Location = new System.Drawing.Point(1169, 12);
+            this.optionbutton.Name = "optionbutton";
+            this.optionbutton.Size = new System.Drawing.Size(75, 23);
+            this.optionbutton.TabIndex = 3;
+            this.optionbutton.Text = "option";
+            this.optionbutton.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1443, 621);
+            this.Controls.Add(this.optionbutton);
             this.Controls.Add(this.IPhostserver);
             this.Controls.Add(this.Connect_Button);
             this.Controls.Add(this.tabControl1);
@@ -324,6 +335,7 @@
         private System.Windows.Forms.TextBox DescLWTH;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TitleLWTH;
+        private System.Windows.Forms.Button optionbutton;
     }
 }
 
