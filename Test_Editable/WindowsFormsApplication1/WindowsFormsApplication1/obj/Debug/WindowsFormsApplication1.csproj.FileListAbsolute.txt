@@ -9,3 +9,5 @@ D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsAp
 D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\obj\Debug\WindowsFormsApplication1.pdb
 D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Svt.Caspar.pdb
 D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Svt.Network.pdb
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Interop.BMDSwitcherAPI.dll
+D:\[Work]\CasparCCC_Invate\Test_Editable\WindowsFormsApplication1\WindowsFormsApplication1\bin\Debug\Interop.BMDSwitcherAPI.pdb

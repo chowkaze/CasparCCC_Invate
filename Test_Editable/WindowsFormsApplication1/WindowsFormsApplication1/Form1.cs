@@ -34,8 +34,9 @@ namespace WindowsFormsApplication1
         CasparCGDataCollection cgData = new CasparCGDataCollection();
         private String titlelwthst = "";
         private String desclwthst = "";
+        private List<string> dukdui = new List<string>(new string[] {"Match 1","Match 2","Match 3","Match 4","Match 5"});
 
-        //BMD Objects
+      /*  //BMD Objects
         private IBMDSwitcherDiscovery m_switcherDiscovery;
         private IBMDSwitcher m_switcher;
         private IBMDSwitcherMixEffectBlock m_mixEffectBlock1;
@@ -46,7 +47,7 @@ namespace WindowsFormsApplication1
         private bool m_moveSliderDownwards = false;
         private bool m_currentTransitionReachedHalfway = false;
 
-        private List<InputMonitor> m_inputMonitors = new List<InputMonitor>();
+        private List<InputMonitor> m_inputMonitors = new List<InputMonitor>();*/
 
 
         public Form1()
@@ -57,31 +58,32 @@ namespace WindowsFormsApplication1
             caspar_.FailedConnect += new EventHandler<NetworkEventArgs>(caspar__FailedConnected);
             caspar_.Disconnected += new EventHandler<NetworkEventArgs>(caspar__Disconnected);
             updateConnectButtonText();
+            MatchCB.Enabled = false;
+            /*
+                        //Initializing BMD ATEM
+                        // note: this invoke pattern ensures our callback is called in the main thread. We are making double
+                        // use of lambda expressions here to achieve this.
+                        // Essentially, the events will arrive at the callback class (implemented by our monitor classes)
+                        // on a separate thread. We must marshell these to the main thread, and we're doing this by calling
+                        // invoke on the Windows Forms object. The lambda expression is just a simplification.
+                        m_switcherMonitor = new SwitcherMonitor();
+                        m_switcherMonitor.SwitcherDisconnected += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => SwitcherDisconnected())));
 
-            //Initializing BMD ATEM
-            // note: this invoke pattern ensures our callback is called in the main thread. We are making double
-            // use of lambda expressions here to achieve this.
-            // Essentially, the events will arrive at the callback class (implemented by our monitor classes)
-            // on a separate thread. We must marshell these to the main thread, and we're doing this by calling
-            // invoke on the Windows Forms object. The lambda expression is just a simplification.
-            m_switcherMonitor = new SwitcherMonitor();
-            m_switcherMonitor.SwitcherDisconnected += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => SwitcherDisconnected())));
+                        m_mixEffectBlockMonitor = new MixEffectBlockMonitor();
+                        m_mixEffectBlockMonitor.ProgramInputChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => UpdateProgramButtonSelection())));
+                        m_mixEffectBlockMonitor.PreviewInputChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => UpdatePreviewButtonSelection())));
+                        m_mixEffectBlockMonitor.TransitionFramesRemainingChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => UpdateTransitionFramesRemaining())));
+                        m_mixEffectBlockMonitor.TransitionPositionChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => UpdateSliderPosition())));
+                        m_mixEffectBlockMonitor.InTransitionChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => OnInTransitionChanged())));
 
-            m_mixEffectBlockMonitor = new MixEffectBlockMonitor();
-            m_mixEffectBlockMonitor.ProgramInputChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => UpdateProgramButtonSelection())));
-            m_mixEffectBlockMonitor.PreviewInputChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => UpdatePreviewButtonSelection())));
-            m_mixEffectBlockMonitor.TransitionFramesRemainingChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => UpdateTransitionFramesRemaining())));
-            m_mixEffectBlockMonitor.TransitionPositionChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => UpdateSliderPosition())));
-            m_mixEffectBlockMonitor.InTransitionChanged += new SwitcherEventHandler((s, a) => this.Invoke((Action)(() => OnInTransitionChanged())));
+                        m_switcherDiscovery = new CBMDSwitcherDiscovery();
+                        if (m_switcherDiscovery == null)
+                        {
+                            MessageBox.Show("Could not create Switcher Discovery Instance.\nATEM Switcher Software may not be installed.", "Error");
+                            Environment.Exit(1);
+                        }
 
-            m_switcherDiscovery = new CBMDSwitcherDiscovery();
-            if (m_switcherDiscovery == null)
-            {
-                MessageBox.Show("Could not create Switcher Discovery Instance.\nATEM Switcher Software may not be installed.", "Error");
-                Environment.Exit(1);
-            }
-
-            SwitcherDisconnected();		// start with switcher disconnected
+                        SwitcherDisconnected();		// start with switcher disconnected*/
         }
 
         #region caspar connection
@@ -174,10 +176,12 @@ namespace WindowsFormsApplication1
             if (!caspar_.IsConnected)
             {
                 Connect_Button.Text = "Connect";// to " + Properties.Settings.Default.Hostname;
+                ConnectedStatus.Text = "Disconnected";
             }
             else
             {
                 Connect_Button.Text = "Disconnect"; // from " + Properties.Settings.Default.Hostname;
+                ConnectedStatus.Text = "Connected";
             }
         }
 
@@ -295,7 +299,7 @@ namespace WindowsFormsApplication1
         #endregion
 
         #region ATEMControls
-        private void OnInputLongNameChanged(object sender, object args)
+       /* private void OnInputLongNameChanged(object sender, object args)
         {
             this.Invoke((Action)(() => UpdatePopupItems()));
         }
@@ -649,10 +653,91 @@ namespace WindowsFormsApplication1
                 return name;
             }
         }
+
+
+    */
         #endregion
 
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (caspar_.IsConnected)
+            {
+                if(e.KeyCode == Keys.F1)
+                {
+
+                }
 
 
+            }
+        }
 
+        private void Deathmatchbox_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if(Deathmatchbox.Checked)
+            {
+                MatchCB.Enabled = true;
+                
+                    MatchCB.Items.Add(dukdui[0]);
+               
+                BO3box.Enabled = false;
+                BO5box.Enabled = false;
+
+
+            }
+            else
+            {
+                MatchCB.Enabled = false;
+                MatchCB.Items.Clear();
+                BO3box.Enabled = true;
+                BO5box.Enabled = true;
+            }
+        }
+
+        private void BO3box_CheckedChanged(object sender, EventArgs e)
+        {
+            if(BO3box.Checked)
+            {
+                MatchCB.Enabled = true;
+
+                MatchCB.Items.Add(dukdui[0]);
+                MatchCB.Items.Add(dukdui[1]);
+                MatchCB.Items.Add(dukdui[2]);
+                Deathmatchbox.Enabled = false;
+                BO5box.Enabled = false;
+            }
+            else
+            {
+                MatchCB.Enabled = false;
+                MatchCB.Items.Clear();
+                BO5box.Enabled = true;
+                Deathmatchbox.Enabled = true;
+            }
+        }
+
+        private void BO5box_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BO5box.Checked)
+            {
+                MatchCB.Enabled = true;
+
+                MatchCB.Items.Add(dukdui[0]);
+                MatchCB.Items.Add(dukdui[1]);
+                MatchCB.Items.Add(dukdui[2]);
+                MatchCB.Items.Add(dukdui[3]);
+                MatchCB.Items.Add(dukdui[4]);
+                Deathmatchbox.Enabled = false;
+                BO3box.Enabled = false;
+            }
+            else
+            {
+                MatchCB.Enabled = false;
+                MatchCB.Items.Clear();
+                BO3box.Enabled = true;
+                Deathmatchbox.Enabled = true;
+            }
+        }
+
+       
     }
 }
