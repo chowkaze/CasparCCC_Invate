@@ -19,6 +19,10 @@ namespace WindowsFormsApplication1
 
         private string Casterinfo = System.IO.Path.Combine(folderName, "Caster.txt");
 
+        private string Statinfo = System.IO.Path.Combine(folderName, "Stat.txt");
+
+
+
         public void CreateFileOrFolder()
         {
            
@@ -44,6 +48,10 @@ namespace WindowsFormsApplication1
             {
                 System.IO.File.Create(Casterinfo);
             }
+            if (!System.IO.File.Exists(Statinfo))
+            {
+                System.IO.File.Create(Statinfo);
+            }
 
 
         }
@@ -65,6 +73,12 @@ namespace WindowsFormsApplication1
                 case "Caster":
                     directfile = Casterinfo;
                     break;
+                case "Player":
+                    directfile = Playerinfo;
+                    break;
+                case "Stat":
+                    directfile = Statinfo;
+                    break;
                 default:
                     Console.WriteLine("Default case");
                     break;
@@ -74,39 +88,13 @@ namespace WindowsFormsApplication1
             System.IO.StreamReader file = new System.IO.StreamReader(directfile);
             while ((line = file.ReadLine()) != null)
             {
-               
                        val.Add(line);
-                    
- 
+
             }
 
             file.Close();
             return val;
 
-        }
-
-        public List<string> read_file(string filename, string teamname)
-        {
-            string directfile = Playerinfo;
-            List<string> val = new List<string>();
-            string line;
-            System.IO.StreamReader file = new System.IO.StreamReader(directfile);
-            while ((line = file.ReadLine()) != null)
-            {
-                if(line == teamname)
-                {
-                    if (line!="End") {
-                        val.Add(line);
-                    }
-                    else
-                    {
-                        break;
-                    }
-                }
-
-            }
-            file.Close();
-            return val;
         }
 
         public void write_file(List<string> Content,string filetype)
@@ -127,6 +115,9 @@ namespace WindowsFormsApplication1
                 case "Player":
                     directfile = Playerinfo;
                     break;
+                case "Stat":
+                    directfile = Statinfo;
+                        break;
                 default:
                     Console.WriteLine("Default case");
                     break;
@@ -140,17 +131,45 @@ namespace WindowsFormsApplication1
                         file.WriteLine(line);
                     
                 }
-                if(filetype == "Player")
-                {
-                    file.WriteLine("End");
-                }
             }
 
 
         }
 
-        public void delete_file()
+        public void delete_file(string filename)
         {
+
+            switch (filename)
+            {
+                case "Preset":
+                    
+                    System.IO.File.Delete(FileDirectory);
+                    System.IO.File.Create(FileDirectory);
+                    break;
+                case "Team":
+                   
+                    System.IO.File.Delete(Teaminfo);
+                    System.IO.File.Create(FileDirectory);
+                    break;
+                case "Caster":
+                    
+                    System.IO.File.Delete(Casterinfo);
+                    System.IO.File.Create(FileDirectory);
+                    break;
+                case "Player":
+                  
+                    System.IO.File.Delete(Playerinfo);
+                    System.IO.File.Create(FileDirectory);
+                    break;
+                case "Stat":
+                   
+                    System.IO.File.Delete(Statinfo);
+                    System.IO.File.Create(FileDirectory);
+                    break;
+                default:
+                    Console.WriteLine("Default case");
+                    break;
+            }
 
         }
 

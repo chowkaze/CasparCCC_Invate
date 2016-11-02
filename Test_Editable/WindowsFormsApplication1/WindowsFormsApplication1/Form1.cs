@@ -32,22 +32,28 @@ namespace WindowsFormsApplication1
 
         CasparDevice caspar_ = new CasparDevice();
         CasparCGDataCollection cgData = new CasparCGDataCollection();
-        private String titlelwthst = "";
-        private String desclwthst = "";
+        private string titlelwthst = "";
+        private string desclwthst = "";
         private List<string> dukdui = new List<string>(new string[] {"Match 1","Match 2","Match 3","Match 4","Match 5"});
+        ReadWriteFile rw = new ReadWriteFile();
+        private List<string> Teamname = new List<string>();
+        private List<string> Playername = new List<string>();
+        private List<string> Playerstat = new List<string>();
+        private List<string> Preset = new List<string>();
+        private List<string> Castername = new List<string>();
 
-      /*  //BMD Objects
-        private IBMDSwitcherDiscovery m_switcherDiscovery;
-        private IBMDSwitcher m_switcher;
-        private IBMDSwitcherMixEffectBlock m_mixEffectBlock1;
+        /*  //BMD Objects
+          private IBMDSwitcherDiscovery m_switcherDiscovery;
+          private IBMDSwitcher m_switcher;
+          private IBMDSwitcherMixEffectBlock m_mixEffectBlock1;
 
-        private SwitcherMonitor m_switcherMonitor;
-        private MixEffectBlockMonitor m_mixEffectBlockMonitor;
+          private SwitcherMonitor m_switcherMonitor;
+          private MixEffectBlockMonitor m_mixEffectBlockMonitor;
 
-        private bool m_moveSliderDownwards = false;
-        private bool m_currentTransitionReachedHalfway = false;
+          private bool m_moveSliderDownwards = false;
+          private bool m_currentTransitionReachedHalfway = false;
 
-        private List<InputMonitor> m_inputMonitors = new List<InputMonitor>();*/
+          private List<InputMonitor> m_inputMonitors = new List<InputMonitor>();*/
 
 
         public Form1()
@@ -59,6 +65,20 @@ namespace WindowsFormsApplication1
             caspar_.Disconnected += new EventHandler<NetworkEventArgs>(caspar__Disconnected);
             updateConnectButtonText();
             MatchCB.Enabled = false;
+            rw.CreateFileOrFolder();
+            Teamname = rw.read_file("Team");
+            Playername = rw.read_file("Player");
+            Playerstat = rw.read_file("Stat");
+            Preset = rw.read_file("Preset");
+            Castername = rw.read_file("Caster");
+            foreach(string team in Teamname)
+            {
+                comboBox2.Items.Add(team);
+            }
+            popVidBox();
+
+
+
             /*
                         //Initializing BMD ATEM
                         // note: this invoke pattern ensures our callback is called in the main thread. We are making double
@@ -205,10 +225,7 @@ namespace WindowsFormsApplication1
         }
         #region Functional_Program
 
-        private void read_write_preset()
-        {
 
-        }
 
         private void ShowRunCG(String[] Types,String[] InputSource,int layer,int channel,String TempName)
         {
@@ -738,6 +755,521 @@ namespace WindowsFormsApplication1
             }
         }
 
-       
+        private void button8_Click(object sender, EventArgs e)
+        {
+            List<string> TN = new List<string>();
+             List<string> PN = new List<string>();
+            List<string> PST = new List<string>();
+            List<string> Check = new List<string>();
+            bool tick = true;
+            bool tickplayer = true;
+            int playercount = 0;
+            int[] playerinteam = { 0, 0, 0, 0, 0, 0, 0 };
+            string[] playerteam = {"","","","","","",""} ;
+            string[] playerstat = new string[66];
+
+            playerstat[0] = textBox4.Text;
+            playerstat[1] = textBox5.Text;
+            playerstat[2] = textBox6.Text;
+            playerstat[3] = textBox46.Text;
+            playerstat[4] = textBox7.Text;
+            playerstat[5] = textBox47.Text;
+            playerstat[6] = textBox8.Text;
+            playerstat[7] = textBox48.Text;
+            playerstat[8] = textBox9.Text;
+            playerstat[9] = textBox49.Text;
+            playerstat[10] = textBox10.Text;
+            playerstat[11] = textBox17.Text;
+            playerstat[12] = textBox16.Text;
+            playerstat[13] = textBox15.Text;
+            playerstat[14] = textBox50.Text;
+            playerstat[15] = textBox14.Text;
+            playerstat[16] = textBox51.Text;
+            playerstat[17] = textBox13.Text;
+            playerstat[18] = textBox52.Text;
+            playerstat[19] = textBox12.Text;
+            playerstat[20] = textBox53.Text;
+            playerstat[21] = textBox11.Text;
+            playerstat[22] = textBox24.Text;
+            playerstat[23] = textBox23.Text;
+            playerstat[24] = textBox22.Text;
+            playerstat[25] = textBox54.Text;
+            playerstat[26] = textBox21.Text;
+            playerstat[27] = textBox55.Text;
+            playerstat[28] = textBox20.Text;
+            playerstat[29] = textBox56.Text;
+            playerstat[30] = textBox19.Text;
+            playerstat[31] = textBox57.Text;
+            playerstat[32] = textBox18.Text;
+            playerstat[33] = textBox31.Text;
+            playerstat[34] = textBox30.Text;
+            playerstat[35] = textBox29.Text;
+            playerstat[36] = textBox58.Text;
+            playerstat[37] = textBox28.Text;
+            playerstat[38] = textBox59.Text;
+            playerstat[39] = textBox27.Text;
+            playerstat[40] = textBox60.Text;
+            playerstat[41] = textBox26.Text;
+            playerstat[42] = textBox61.Text;
+            playerstat[43] = textBox25.Text;
+            playerstat[44] = textBox38.Text;
+            playerstat[45] = textBox37.Text;
+            playerstat[46] = textBox36.Text;
+            playerstat[47] = textBox62.Text;
+            playerstat[48] = textBox35.Text;
+            playerstat[49] = textBox63.Text;
+            playerstat[50] = textBox34.Text;
+            playerstat[51] = textBox64.Text;
+            playerstat[52] = textBox33.Text;
+            playerstat[53] = textBox65.Text;
+            playerstat[54] = textBox32.Text;
+            playerstat[55] = textBox45.Text;
+            playerstat[56] = textBox44.Text;
+            playerstat[57] = textBox43.Text;
+            playerstat[58] = textBox66.Text;
+            playerstat[59] = textBox42.Text;
+            playerstat[60] = textBox67.Text;
+            playerstat[61] = textBox41.Text;
+            playerstat[62] = textBox68.Text;
+            playerstat[63] = textBox40.Text;
+            playerstat[64] = textBox69.Text;
+            playerstat[65] = textBox39.Text;
+
+
+            foreach (string i in Teamname)
+            {
+                if(i == textBox3.Text)
+                {
+                    tick = false;
+                }
+            }
+
+            if (textBox4.Text != "" )
+            {
+                playercount++;
+                playerteam[0] = textBox4.Text;
+            }
+            if (textBox17.Text != "")
+            {
+                playercount++;
+                playerteam[1] = textBox17.Text;
+            }
+            if (textBox24.Text != "")
+            {
+                playercount++;
+                playerteam[2] = textBox4.Text;
+            }
+            if (textBox31.Text != "")
+            {
+                playercount++;
+                playerteam[3] = textBox4.Text;
+            }
+            if (textBox38.Text != "")
+            {
+                playercount++;
+                playerteam[4] = textBox4.Text;
+            }
+            if (textBox45.Text != "")
+            {
+                playercount++;
+                playerteam[5] = textBox4.Text;
+            }
+            if (textBox4.Text != "")
+            {
+                playercount++;
+                playerteam[6] = textBox4.Text;
+            }
+            foreach (string i in Playername)
+            {
+                
+                if(!tick)
+                {
+                    if (i != textBox3.Text && tickplayer)
+                    {
+                        PN.Add(i);
+                    }
+                    else
+                    {
+                        if (i == textBox4.Text)
+                        {
+                            PN.Add(i);
+                            playerinteam[0] = 1;
+                        }
+                        else
+                        {
+                            if (i == textBox17.Text)
+                            {
+                                PN.Add(i);
+                                playerinteam[1] = 1;
+                            }
+                            else
+                            {
+                                if (i == textBox24.Text)
+                                {
+                                    PN.Add(i);
+                                    playerinteam[2] = 1;
+                                }
+                                else
+                                {
+                                    if (i == textBox31.Text)
+                                    {
+                                        PN.Add(i);
+                                        playerinteam[3] = 1;
+                                    }
+                                    else
+                                    {
+                                        if (i == textBox38.Text)
+                                        {
+                                            PN.Add(i);
+                                            playerinteam[4] = 1;
+                                        }
+                                        else
+                                        {
+                                            if (i == textBox45.Text)
+                                            {
+                                                PN.Add(i);
+                                                playerinteam[5] = 1;
+                                            }
+                                            else
+                                            {
+                                                if (i == textBox4.Text)
+                                                {
+                                                    PN.Add(i);
+                                                    playerinteam[6] = 1;
+                                                }
+                                                
+
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                     
+
+                        if (i == "End"+textBox3.Text)
+                        {
+                            for(int j = 0; j<7; j++)
+                            {
+                                if (playerinteam[j] == 0 && playerteam[j]!= "")
+                                {
+                                    PN.Add(playerteam[j]);
+                                }
+                            }
+                            tickplayer = true;
+                            PN.Add(i);
+
+                        }
+                    }
+                }
+                else
+                {
+
+                     PN.Add(i);
+
+                }
+                 
+            }
+
+            foreach (string i in Playerstat)
+             {
+                if (!tick)
+                {
+                    if(i == playerteam[0])
+                    {
+                      
+                    }
+                    if (i == playerteam[11])
+                    {
+                     
+                    }
+                    if (i == playerteam[22])
+                    {
+              
+                    }
+                    if (i == playerteam[33])
+                    {
+                    }
+                    if (i == playerteam[44])
+                    {
+                      
+                    }
+                    if (i == playerteam[55])
+                    {
+                       
+                    }
+
+                }
+                else
+                {
+
+                }
+            }
+
+
+            if (!tick)
+            {
+                rw.delete_file("Team");
+                rw.delete_file("Player");
+                rw.delete_file("Stat");
+                rw.write_file(TN, "Team");
+                rw.write_file(PN, "Player");
+                rw.write_file(PST, "Stat");
+
+
+            }
+            else
+            {
+                TN.Add(textBox3.Text);
+                PN.Add(textBox3.Text);
+                PN.Add(textBox4.Text);
+                PN.Add(textBox17.Text);
+                PN.Add(textBox24.Text);
+                PN.Add(textBox31.Text);
+                PN.Add(textBox38.Text);
+                PN.Add(textBox45.Text);
+                PN.Add(textBox4.Text);
+                PN.Add("End" + textBox3.Text);
+
+                PST.Add(textBox4.Text);
+                PST.Add(textBox5.Text);
+                PST.Add(textBox6.Text);
+                PST.Add(textBox46.Text);
+                PST.Add(textBox7.Text);
+                PST.Add(textBox47.Text);
+                PST.Add(textBox8.Text);
+                PST.Add(textBox48.Text);
+                PST.Add(textBox9.Text);
+                PST.Add(textBox49.Text);
+                PST.Add(textBox10.Text);
+                PST.Add("End" + textBox4.Text);
+
+                PST.Add(textBox17.Text);
+                PST.Add(textBox16.Text);
+                PST.Add(textBox15.Text);
+                PST.Add(textBox50.Text);
+                PST.Add(textBox14.Text);
+                PST.Add(textBox51.Text);
+                PST.Add(textBox13.Text);
+                PST.Add(textBox52.Text);
+                PST.Add(textBox12.Text);
+                PST.Add(textBox53.Text);
+                PST.Add(textBox11.Text);
+                PST.Add("End" + textBox17.Text);
+
+                PST.Add(textBox24.Text);
+                PST.Add(textBox23.Text);
+                PST.Add(textBox22.Text);
+                PST.Add(textBox54.Text);
+                PST.Add(textBox21.Text);
+                PST.Add(textBox55.Text);
+                PST.Add(textBox20.Text);
+                PST.Add(textBox56.Text);
+                PST.Add(textBox19.Text);
+                PST.Add(textBox57.Text);
+                PST.Add(textBox18.Text);
+                PST.Add("End" + textBox24.Text);
+
+                PST.Add(textBox31.Text);
+                PST.Add(textBox30.Text);
+                PST.Add(textBox29.Text);
+                PST.Add(textBox58.Text);
+                PST.Add(textBox28.Text);
+                PST.Add(textBox59.Text);
+                PST.Add(textBox27.Text);
+                PST.Add(textBox60.Text);
+                PST.Add(textBox26.Text);
+                PST.Add(textBox61.Text);
+                PST.Add(textBox25.Text);
+                PST.Add("End" + textBox31.Text);
+
+                PST.Add(textBox38.Text);
+                PST.Add(textBox37.Text);
+                PST.Add(textBox36.Text);
+                PST.Add(textBox62.Text);
+                PST.Add(textBox35.Text);
+                PST.Add(textBox63.Text);
+                PST.Add(textBox34.Text);
+                PST.Add(textBox64.Text);
+                PST.Add(textBox33.Text);
+                PST.Add(textBox63.Text);
+                PST.Add(textBox32.Text);
+                PST.Add("End" + textBox38.Text);
+
+                PST.Add(textBox45.Text);
+                PST.Add(textBox44.Text);
+                PST.Add(textBox43.Text);
+                PST.Add(textBox66.Text);
+                PST.Add(textBox42.Text);
+                PST.Add(textBox67.Text);
+                PST.Add(textBox41.Text);
+                PST.Add(textBox68.Text);
+                PST.Add(textBox40.Text);
+                PST.Add(textBox69.Text);
+                PST.Add(textBox39.Text);
+                PST.Add("End" + textBox45.Text);
+                rw.write_file(TN, "Team");
+                rw.write_file(PN, "Player");
+                rw.write_file(PST, "Stat");
+
+
+            }
+           
+
+            
+            
+           
+
+
+
+            
+            
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string selected = this.comboBox2.GetItemText(this.comboBox2.SelectedItem);
+            bool tick = false;
+            bool tick2 = false;
+            string[] fillbox = new string[70];
+            string namecol = "";
+            int j = 0;
+            foreach (string i in Playername)
+            {
+                if(i == selected)
+                {
+                    tick = true;
+                }
+                if(i == "End"+selected)
+                {
+                    tick = false;
+                    break;
+                }
+                if(tick)
+                {
+                    fillbox[j] = i;
+                    foreach (string k in Playerstat)
+                    {
+                        if(k == i)
+                        {
+                            tick2 = true;
+                        }
+                        if(k == "End"+namecol)
+                        {
+                            tick2 = false;
+                            break;
+                        }
+                        if(tick2)
+                        {
+                            fillbox[j] = i;
+                            j++;
+                        }
+                    }
+                    j++;
+                }
+                
+            }
+
+            textBox3.AppendText(fillbox[0]);
+            textBox4.AppendText(fillbox[1]);
+            textBox5.AppendText(fillbox[2]);
+            textBox6.AppendText(fillbox[3]);
+            textBox46.AppendText(fillbox[4]);
+            textBox7.AppendText(fillbox[5]);
+            textBox47.AppendText(fillbox[6]);
+            textBox8.AppendText(fillbox[7]);
+            textBox48.AppendText(fillbox[8]);
+            textBox9.AppendText(fillbox[9]);
+            textBox49.AppendText(fillbox[10]);
+            textBox10.AppendText(fillbox[11]);
+            textBox17.AppendText(fillbox[12]);
+            textBox16.AppendText(fillbox[13]);
+            textBox15.AppendText(fillbox[14]);
+            textBox50.AppendText(fillbox[15]);
+            textBox14.AppendText(fillbox[16]);
+            textBox51.AppendText(fillbox[17]);
+            textBox13.AppendText(fillbox[18]);
+            textBox52.AppendText(fillbox[19]);
+            textBox12.AppendText(fillbox[20]);
+            textBox53.AppendText(fillbox[21]);
+            textBox11.AppendText(fillbox[22]);
+            textBox24.AppendText(fillbox[23]);
+            textBox23.AppendText(fillbox[24]);
+            textBox22.AppendText(fillbox[25]);
+            textBox54.AppendText(fillbox[26]);
+            textBox21.AppendText(fillbox[27]);
+            textBox55.AppendText(fillbox[28]);
+            textBox20.AppendText(fillbox[29]);
+            textBox56.AppendText(fillbox[30]);
+            textBox19.AppendText(fillbox[31]);
+            textBox57.AppendText(fillbox[32]);
+            textBox18.AppendText(fillbox[33]);
+            textBox31.AppendText(fillbox[34]);
+            textBox30.AppendText(fillbox[35]);
+            textBox29.AppendText(fillbox[36]);
+            textBox58.AppendText(fillbox[37]);
+            textBox28.AppendText(fillbox[38]);
+            textBox59.AppendText(fillbox[39]);
+            textBox27.AppendText(fillbox[40]);
+            textBox60.AppendText(fillbox[41]);
+            textBox26.AppendText(fillbox[42]);
+            textBox61.AppendText(fillbox[43]);
+            textBox25.AppendText(fillbox[44]);
+            textBox38.AppendText(fillbox[45]);
+            textBox37.AppendText(fillbox[46]);
+            textBox36.AppendText(fillbox[47]);
+            textBox62.AppendText(fillbox[48]);
+            textBox35.AppendText(fillbox[49]);
+            textBox63.AppendText(fillbox[50]);
+            textBox34.AppendText(fillbox[51]);
+            textBox64.AppendText(fillbox[52]);
+            textBox33.AppendText(fillbox[53]);
+            textBox65.AppendText(fillbox[54]);
+            textBox32.AppendText(fillbox[55]);
+            textBox45.AppendText(fillbox[56]);
+            textBox44.AppendText(fillbox[57]);
+            textBox43.AppendText(fillbox[58]);
+            textBox66.AppendText(fillbox[59]);
+            textBox42.AppendText(fillbox[60]);
+            textBox67.AppendText(fillbox[61]);
+            textBox41.AppendText(fillbox[62]);
+            textBox68.AppendText(fillbox[63]);
+            textBox40.AppendText(fillbox[64]);
+            textBox69.AppendText(fillbox[65]);
+            textBox39.AppendText(fillbox[66]);
+        }
+
+        private void popVidBox()
+        {
+            int range = caspar_.Mediafiles.Count;
+            for (int i = 0; i < range; i++)
+            {
+                MediaInfo item = caspar_.Mediafiles[i];
+
+                string filename = item.ToString();
+                string filetype = item.Type.ToString();
+
+                if (filetype == "MOVIE")
+                {
+                    comboBox3.Items.Add(filename);
+                    comboBox4.Items.Add(filename);
+                    comboBox6.Items.Add(filename);
+                    comboBox5.Items.Add(filename);
+                    comboBox8.Items.Add(filename);
+                    comboBox7.Items.Add(filename);
+                    comboBox10.Items.Add(filename);
+                    comboBox9.Items.Add(filename);
+                    comboBox12.Items.Add(filename);
+                    comboBox11.Items.Add(filename);
+                    comboBox14.Items.Add(filename);
+                    comboBox13.Items.Add(filename);
+
+                }
+                else
+                {
+                    imageBox.Items.Add(filename);
+                }
+            }
+        }
     }
 }
